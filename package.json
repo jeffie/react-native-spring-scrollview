@@ -47,7 +47,8 @@
   "peerDependencies": {
     "react": "^16.3.1",
     "react-native": "^0.50.0",
-    "lottie-react-native": "latest"
+    "lottie-react-native": "latest",
+    "@react-native-community/async-storage": "^1.6.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
