@@ -7,13 +7,12 @@
  *
  */
 
-import React from 'react';
-import {Text, StyleSheet} from 'react-native';
-import AsyncStorage from '@react-native-community/async-storage';
-import {NormalHeader} from '../NormalHeader';
-import {HeaderStatus} from '../RefreshHeader';
+import React from "react";
+import { Text, StyleSheet, AsyncStorage } from "react-native";
+import { NormalHeader } from "../NormalHeader";
+import { HeaderStatus } from "../RefreshHeader";
 
-const RefreshKey = 'org.bolan9999.spring_scrollview.refresh_time';
+const RefreshKey = "org.bolan9999.spring_scrollview.refresh_time";
 
 export class WithLastDateHeader extends NormalHeader {
   lastTime: Date;
@@ -27,7 +26,7 @@ export class WithLastDateHeader extends NormalHeader {
   }
 
   onStateChange(oldStatus: HeaderStatus, newStatus: HeaderStatus) {
-    if (newStatus === 'refreshing') {
+    if (newStatus === "refreshing") {
       const now = new Date();
       AsyncStorage.setItem(RefreshKey, now.toString())
         .then(() => {
@@ -48,16 +47,16 @@ export class WithLastDateHeader extends NormalHeader {
   }
 
   getText() {
-    return 'Last Updated: ';
+    return "Last Updated: ";
   }
 
   getTimeDescription() {
     if (!this.lastTime) {
-      return 'never';
+      return "never";
     }
     const now = new Date();
     let timeInterval = Math.floor(
-      (now.getTime() - this.lastTime.getTime()) / 1000,
+      (now.getTime() - this.lastTime.getTime()) / 1000
     );
     if (timeInterval < 60) {
       return `${timeInterval}s ago`;
@@ -82,8 +81,8 @@ const styles = StyleSheet.create({
   text: {
     marginVertical: 5,
     fontSize: 12,
-    color: '#666',
-    textAlign: 'center',
-    width: 130,
-  },
+    color: "#666",
+    textAlign: "center",
+    width: 130
+  }
 });
