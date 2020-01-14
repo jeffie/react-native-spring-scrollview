@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <React/RCTScrollContentViewManager.h>
+#import <React/RCTViewManager.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
+@interface RCTScrollContentViewManager : RCTViewManager
+@end
 
 @interface STSpringScrollContentViewManager : RCTScrollContentViewManager
 
